@@ -33,6 +33,7 @@ brew install ruby
 brew install python
 brew install python3
 brew install git
+brew install bash-completion
 
 # Remove outdated versions from the cellar.
 brew cleanup
