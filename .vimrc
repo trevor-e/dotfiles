@@ -23,3 +23,5 @@ set ignorecase
 set ruler
 " Show the filename in the window titlebar
 set title
+" Fix backspace to be sane
+set backspace=indent,eol,start
