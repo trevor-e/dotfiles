@@ -40,7 +40,7 @@ alias androidSetLocaleUS="setLocale en US"
 alias androidFragments="atop | grep -A 5 'Added Fragments:'"
 
 alias iosdd="rm -rf ~/Library/Developer/Xcode/DerivedData"
-alias ioslint="ios; scripts/lint-swift-staged autocorrect"
+alias ioslint="ios; scripts/lint-swift-staged autocorrect; Scripts/format-code -s"
 
 alias lsa="ls -altrG"
 
