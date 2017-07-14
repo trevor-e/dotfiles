@@ -34,6 +34,8 @@ brew install python
 brew install python3
 brew install git
 brew install bash-completion
+brew install cairo
+brew install swiftgen
 
 # Remove outdated versions from the cellar.
 brew cleanup
