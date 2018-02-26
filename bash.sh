@@ -21,21 +21,25 @@ brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
 
-brew install clang-format
-brew install swiftlint
-brew install carthage
-brew install go
-brew install mysql
-brew install pidcat
-brew install groovy
-brew install openssl
-brew install ruby
-brew install python
-brew install python3
-brew install git
 brew install bash-completion
 brew install cairo
+brew install carthage
+brew install clang-format
+brew install emacs
+brew install fd
+brew install git
+brew install go
+brew install groovy
+brew install htop
+brew install openssl
+brew install pidcat
+brew install postgresql
+brew install python
+brew install python3
+brew install ruby
 brew install swiftgen
+brew install swiftlint
+brew install vim
 
 # Remove outdated versions from the cellar.
 brew cleanup

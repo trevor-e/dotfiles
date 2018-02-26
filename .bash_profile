@@ -1,55 +1,21 @@
-# Exports
+##
+# ~/.bash_profile -- startup file for bash (interactive login)
+#
+#	author:		Pat Gaffney <pat@hypepat.com>
+#	created:	2016-09-17
+#	modified:	2017-04-10
+#
+#	This file is loaded immediately after /etc/profile when invoking
+#	bash as an interactive login shell (or as a non-interactive
+#	login shell with the --login option).
+#
+#	Mostly, all of the bash settings are actually located in 
+#	~/.bashrc -- as it is the *only* file read and executed when
+#	bash is invoked as an interactive, non-login shell.
+#
+#####################################################################
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=$PATH:/Users/telkins/Library/Android/sdk/platform-tools
-export PATH=$PATH:/Users/telkins/Library/Android/sdk/tools
-
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
-export ANDROID_HOME=/Users/telkins/Library/Android/sdk
-export ANDROID_SDK=/Users/telkins/Library/Android/sdk
-export STUDIO_JDK=/Library/Java/JavaVirtualMachines/1.6.0.jdk
-
-export VISUAL=vim
-export EDITOR="$VISUAL"
-export PATH
-
-source ~/.local
-source /usr/local/etc/bash_completion.d/git-prompt.sh 
-source /usr/local/etc/bash_completion.d/git-completion.bash
-
-# Functions
-
-setLocale() {
-    adb shell "su -c 'setprop persist.sys.language $1; setprop persist.sys.country $2; stop; sleep 5; start'"
-}
-
-capture() {
-    adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ./$1.png
-}
-
-# Aliases
-
-alias atop="adb shell dumpsys activity top"
-alias capture=capture
-alias setLocale=setLocale
-alias crashlytics="cat ~/Library/Caches/com.crashlytics/com.crashlytics.tools/crashlytics.log"
-alias androidShowLayoutBounds="adb shell setprop debug.layout true;adb shell input keyevent KEYCODE_APP_SWITCH;adb shell input keyevent KEYCODE_APP_SWITCH"
-alias androidHideLayoutBounds="adb shell setprop debug.layout false;adb shell input keyevent KEYCODE_APP_SWITCH;adb shell input keyevent KEYCODE_APP_SWITCH"
-alias androidSetLocaleGerman="setLocale de GE"
-alias androidSetLocaleUS="setLocale en US"
-alias androidFragments="atop | grep -A 5 'Added Fragments:'"
-
-alias iosdd="rm -rf ~/Library/Developer/Xcode/DerivedData"
-alias ioslint="ios; scripts/lint-swift-staged autocorrect; Scripts/format-code -s"
-
-alias lsa="ls -altrG"
-
-# Git Configuration
-
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-GIT_PS1_SHOWDIRTYSTATE=true
-BRANCH_COLOR="\[$(tput setaf 4)\]"
-RESET="\[$(tput sgr0)\]"
-PS1="\[\033[36m\]\u\[\033[m\]:\[\033[33;1m\]\w\[\033[m\]\$(__git_ps1 \" ${BRANCH_COLOR}(%s)${RESET} \")\$ "
-export PS1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+##
+# if .bashrc exists and has contents, load it
+#####################################################################
+[[ -s ~/.bashrc ]] && source ~/.bashrc
