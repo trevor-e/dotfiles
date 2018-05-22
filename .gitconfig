@@ -48,3 +48,9 @@
     added = yellow
     changed = green
     untracked = cyan
+[url "https://github.com/card-io/card.io-dmz.git"]
+	insteadOf = git@github.com:card-io/card.io-dmz.git
+[push]
+	default = upstream
+[rebase]
+	autoStash = true

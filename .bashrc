@@ -1,10 +1,13 @@
 # Exports
 
+export JAVA_HOME=$(/usr/libexec/java_home)
+export R9SRC=$HOME/r9.git
+export R9HOME=/r9/smallfrontend1
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$PATH:/Users/telkins/Library/Android/sdk/platform-tools
 export PATH=$PATH:/Users/telkins/Library/Android/sdk/tools
+export PATH=/usr/local/bin:${R9HOME}/bin:${R9SRC}/build/bin:${R9SRC}/sysadmin/rdist/common/bin:$PATH
 
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
 export ANDROID_HOME=/Users/telkins/Library/Android/sdk
 export ANDROID_SDK=/Users/telkins/Library/Android/sdk
 export STUDIO_JDK=/Library/Java/JavaVirtualMachines/1.6.0.jdk
@@ -55,21 +58,19 @@ capture() {
     adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > ./$1.png
 }
 
+recordSim() {
+    xcrun simctl io booted recordView ./$1.mp4
+}
+
 # Aliases
 
 alias atop="adb shell dumpsys activity top"
 alias capture=capture
 alias setLocale=setLocale
-alias crashlytics="cat ~/Library/Caches/com.crashlytics/com.crashlytics.tools/crashlytics.log"
-alias androidShowLayoutBounds="adb shell setprop debug.layout true;adb shell input keyevent KEYCODE_APP_SWITCH;adb shell input keyevent KEYCODE_APP_SWITCH"
-alias androidHideLayoutBounds="adb shell setprop debug.layout false;adb shell input keyevent KEYCODE_APP_SWITCH;adb shell input keyevent KEYCODE_APP_SWITCH"
-alias androidSetLocaleGerman="setLocale de GE"
-alias androidSetLocaleUS="setLocale en US"
-alias androidFragments="atop | grep -A 5 'Added Fragments:'"
-
-alias iosdd="rm -rf ~/Library/Developer/Xcode/DerivedData"
+alias recordSim=recordSim
+alias iosdd="rm -rf ~/Library/Developer/Xcode/DerivedData/"
 alias ioslint="ios; scripts/lint-swift-staged autocorrect; Scripts/format-code -s"
-
+alias r9="cd ~/Programming/r9/r9"
 alias lsa="ls -altrG"
 
 # Git Configuration
